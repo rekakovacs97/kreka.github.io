@@ -24,6 +24,23 @@ header > div {
 footer {
     min-height: 20px;
     text-align: center;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(39, 18, 129);
+    color: white;
+    
+}
+
+footer a {
+    color: white;
+}
+
+body {
+    margin: 0; 
+    background-color: #f5f5f5;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #job-title {
@@ -47,7 +64,9 @@ footer {
 #top-menu-bar a {
     text-decoration: none;
     padding: 0 15px 0 15px;
+    margin: 2px 0;
     color: #fff;
+    display: inline-block;
 }
 
 #top-menu-bar a:visited {
@@ -81,13 +100,7 @@ html {
     height: 100%;
 }
 
-body {
-        margin: 0; 
-        background-color: #f5f5f5;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+
 
 header, body > section {
         flex: 1;
