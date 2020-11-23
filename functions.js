@@ -1,46 +1,36 @@
 var activePage = "skills";
 
-
-
-function hideAllPages() {
-    var pages = document.querySelectorAll(".page");
-    for(var i = 0; i <= pages.length-1; i++) {
-        var page = pages[i];
-        var id = page.id;
-        hide(id);
-    }
-}
-
-var activePage = "skills";
-
 function hide(id) {
     var el = document.getElementById(id);
     if (el) {
         el.style.display = "none";
     } else {
-        console.error("pagina nu exista" , id);
+        console.error("elementul nu exista");
     }
 }
 
 function hidePreviousPage () {
     hide(activePage);
+    var link = document.querySelector(`#top-menu-bar a[data-page="${activePage}"]`);
+    link.classList.remove("active");
 }
 
-function showPage (pageId) {
+function showPage(pageId) {
     hidePreviousPage();
     document.getElementById(pageId).style.display = "";
+    var link = document.querySelector(`#top-menu-bar a[data-page="${pageId}"]`);
+    link.classList.add("active");
     activePage = pageId;
-} 
+}
 
 function initMenu() {
     document.addEventListener("click", function(e){
         var link = e.target;
         if (link.matches("#top-menu-bar a")) {
-            var id = link.innerHTML.toLowerCase();
+            var id = link.getAttribute("data-page");
             showPage(id);
-            link.className.add("active");
         }
-    });
+    })
 }
 
 initMenu();
@@ -52,19 +42,11 @@ var skills = [
     "CSS (5)", 
     "JS (20)"
 ];
-
-var skillsLi_tmp = [
-    "<li>" + skills[0] + "</li>" +
-    "<li>" + skills[1] + "</li>" +
-    "<li>" + skills[2] + "</li>"
-];
-
 var skillsLi = skills.map(function(skill){
-    console.info(skill);
-    return "<li>" + skill + "</li>"; 
+    var endorsments = ` <span<&middot; ${skill.endorsments}</span`;
+    return "<li>" + skill.name + endorsments +  "</li>";
 });
 
-
+// TODO add "favorite" skill
 var ul = document.querySelector("#skills ul");
-ul.innerHTML =  skillsLi.join("");
-                
+ul.innerHTML = skillsLi.join("");
