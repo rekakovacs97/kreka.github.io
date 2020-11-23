@@ -78,6 +78,11 @@ body {
     background-color: #fff;
 }
 
+#top-menu-bar a:active {
+    color: #334455;
+    background-color: #fff;
+}
+
 .page {
     background-color: #ffffff;
     margin: 16px 0;
@@ -93,7 +98,7 @@ body {
 }
 
 li {
-    color: red;
+    color: rgb(31, 27, 27);
 }
 
 html {
